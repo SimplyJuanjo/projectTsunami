@@ -1,52 +1,49 @@
-#create an app with kivy
-
 import kivy
 
+print(kivy.__version__)
+
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
+#from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
 from kivy.uix.popup import Popup
-from kivy.uix.image import Image
-from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.screenmanager import ScreenManager, Screen, SwapTransition
 
-#display a welcome windows app
 
-class WelcomeWindow(App):
+class TournamentBox(BoxLayout):
+    #create a on_click function for the button to add a new team in the scrollview
+    def add_team(self):
+        print("adding team")
+    def edit_teams(self):
+        print("editing team")
+    def delete_teams(self):
+        print("deleting team")
+    def start_tournament(self):
+        print("starting tournament")
+    pass
+
+class TournamentScreen(Screen):
+    pass
+
+class TournamentSettings(Screen):
+    pass
+
+class MainScreen(Screen):
+    pass
+
+class TournamentManagerApp(App):
     def build(self):
-        self.title = 'Welcome to MyApp'
-        layout = BoxLayout(orientation='vertical')
-        label = Label(text='Welcome to Tsunami Tournament Manager!', font_size=40)
-        button = Button(text='Click to add user!', font_size=40)
-        button.bind(on_press=self.show_textinput)
-        layout.add_widget(label)
-        layout.add_widget(button)
-        return layout
+        sm = ScreenManager(transition=SwapTransition())
+        sm.add_widget(MainScreen(name='main'))
+        sm.add_widget(TournamentScreen(name='tournament'))
+        sm.add_widget(TournamentSettings(name='settings'))
+        return sm
 
-    def show_textinput(self, instance):
-        layout = BoxLayout(orientation='vertical')
-        label = Label(text='Please enter your team:', font_size=30)
-        textinput = TextInput(text='', multiline=False)
-        textinput.bind(on_text_validate=self.validate_input)
-        layout.add_widget(label)
-        layout.add_widget(textinput)
-        popup = Popup(title='Add New Team', content=layout, size_hint=(None, None), size=(400, 400))
-        popup.open()
 
-    def validate_input(self, instance):
-        name = instance.text
-        popup.dismiss()
-        popup = Popup(title='Name', content=Label(text='Welcome, {}'.format(name)), size_hint=(None, None), size=(400, 400))
-        popup.open()
-
-    
-
-if __name__ == "__main__":
-
-    WelcomeWindow().run()
+if __name__ == '__main__':
+    TournamentManagerApp().run()
