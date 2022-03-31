@@ -1,5 +1,7 @@
 # projectTsunami
 
+- TODO : Translation to English and Cleaning the Text to be more easily readable
+
 La app en un principio no tendra conexion a servidor para poder compartir torneos y sera una app local para el organizador del torneo
 
 La pantalla de inicio seria una pantalla con los torneos ya creados y un boton para crear un nuevo torneo. Si hay torneos creados estos tendran un boton para modificarlos o borrarlos
