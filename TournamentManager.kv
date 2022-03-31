@@ -6,9 +6,33 @@ MainScreen:
         on_press: root.manager.current = 'main'
 
 <MainScreen>:
-    Button:
-        text: 'CREATE Tournament'
-        on_press: root.manager.current = 'tournament'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Preset Tournaments'
+            size_hint_y: 0.2
+            font_size: 30
+        GridLayout:
+            rows: 2
+            cols: 2
+            size_hint_y: 0.5
+            height: self.minimum_height
+            Button:
+                text: 'Tournament 1'
+                on_press: print('tournament1')
+            Button:
+                text: 'Tournament 2'
+                on_press: print('tournament2')
+            Button:
+                text: 'Tournament 3'
+                on_press: print('tournament3')
+            Button:
+                text: 'Tournament 4'
+                on_press: print('tournament4')
+        Button:
+            text: 'CREATE New Tournament'
+            size_hint_y: 0.3
+            on_press: root.manager.current = 'settings'
 
 <TournamentScreen>:
     TournamentBox:
@@ -18,21 +42,43 @@ MainScreen:
         orientation: 'vertical'
         Label:
             text: 'Tournament Settings'
+            font_size: 30
             size_hint_y: 0.2
-
+        Label:
+            id: slider_label_mode
+            text: 'Choose Tournament Mode:'
+            size_hint_y: 0.2
         Slider:
-            id: slider
+            id: slider_mode
             min: 0
             max: 2
             step: 1
-            size_hint_y: 0.4
-            on_value: root.on_slider_change(slider.value)
+            size_hint_y: 0.2
+            on_value: root.on_slider_mode(slider_mode.value)
         Label:
-            id: slider_label
-            text: 'Choose Tournament Mode'
-            size_hint_y: 0.4
+            id: slider_label_ko
+            text: 'Choose Elimination Mode:'
+            size_hint_y: 0.2
+        Slider:
+            id: slider_ko
+            min: 0
+            max: 1
+            step: 1
+            size_hint_y: 0.2
+            on_value: root.on_slider_ko(slider_ko.value)
+        ToggleButton:
+            id: toggle_button_classification
+            text: 'Choose Clasification Mode:'
+            on_press: root.on_toggle_classification()
+            size_hint_y: 0.2
+        
+        ToggleButton:
+            id: toggle_button_groups
+            text: 'Choose Group Simultaneity of Groups Mode:'
+            on_press: root.on_toggle_groups()
+            size_hint_y: 0.2
         Button:
-            text: 'Back'
+            text: 'Modify TEAMS'
             on_press: root.manager.current = 'tournament'
 
 

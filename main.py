@@ -34,13 +34,25 @@ class TournamentScreen(Screen):
     pass
 
 class TournamentSettings(Screen):
-    def on_slider_change(self, value):
+    def on_slider_mode(self, value):
         if value == 0:
-            self.ids.slider_label.text = "Mode: Pro"
+            self.ids.slider_label_mode.text = "Mode: Pro"
         elif value == 1:
-            self.ids.slider_label.text = "Mode: Pro + Master"
+            self.ids.slider_label_mode.text = "Mode: Pro + Master"
         elif value == 2:
-            self.ids.slider_label.text = "Mode: Pro + Master + Advanced"
+            self.ids.slider_label_mode.text = "Mode: Pro + Master + Advanced"
+
+    def on_slider_ko(self, value):
+        if value == 0:
+            self.ids.slider_label_ko.text = "Direct Knockout"
+        elif value == 1:
+            self.ids.slider_label_ko.text = "Double Knockout"
+
+    def on_toggle_classification(self):
+        self.ids.toggle_button_classification.text = ("Classification with Groups+Brackets" if self.ids.toggle_button_classification.state == "down" else "Only with Brackets")
+    
+    def on_toggle_groups(self):
+        self.ids.toggle_button_groups.text = ("Groups play 1 by 1" if self.ids.toggle_button_groups.state == "down" else "All Groups play at once")
     pass
 
 class MainScreen(Screen):
