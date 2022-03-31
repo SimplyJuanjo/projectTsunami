@@ -13,6 +13,9 @@ from kivy.uix.popup import Popup
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, SwapTransition
+from kivy.core.window import Window 
+
+Window.size = (325, 650) #this is temporal to make it look alike a phone in the PC
 
 
 class TournamentBox(BoxLayout):
@@ -31,14 +34,27 @@ class TournamentScreen(Screen):
     pass
 
 class TournamentSettings(Screen):
+    def on_slider_change(self, value):
+        if value == 0:
+            self.ids.slider_label.text = "Mode: Pro"
+        elif value == 1:
+            self.ids.slider_label.text = "Mode: Pro + Master"
+        elif value == 2:
+            self.ids.slider_label.text = "Mode: Pro + Master + Advanced"
     pass
 
 class MainScreen(Screen):
     pass
 
+class StartScreen(Screen):
+    pass
+
 class TournamentManagerApp(App):
     def build(self):
+        self.title = "Tournament Manager"
+        #self.icon = "icon.png"
         sm = ScreenManager(transition=SwapTransition())
+        sm.add_widget(StartScreen(name='start'))
         sm.add_widget(MainScreen(name='main'))
         sm.add_widget(TournamentScreen(name='tournament'))
         sm.add_widget(TournamentSettings(name='settings'))

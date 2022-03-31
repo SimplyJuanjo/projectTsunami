@@ -1,8 +1,13 @@
 MainScreen:
 
+<StartScreen>:
+    Button:
+        text: 'Start APP'
+        on_press: root.manager.current = 'main'
+
 <MainScreen>:
     Button:
-        text: 'Start Tournament'
+        text: 'CREATE Tournament'
         on_press: root.manager.current = 'tournament'
 
 <TournamentScreen>:
@@ -13,8 +18,21 @@ MainScreen:
         orientation: 'vertical'
         Label:
             text: 'Tournament Settings'
-        ToggleButton:
-            text: 'Tournament Mode'
+            size_hint_y: 0.2
+
+        Slider:
+            id: slider
+            min: 0
+            max: 2
+            step: 1
+            size_hint_y: 0.4
+            on_value: root.on_slider_change(slider.value)
+        Label:
+            id: slider_label
+            text: 'Choose Tournament Mode'
+            size_hint_y: 0.4
+        Button:
+            text: 'Back'
             on_press: root.manager.current = 'tournament'
 
 
