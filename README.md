@@ -1,26 +1,63 @@
 # projectTsunami
+[ENG]:
+In this project we will develop a multi platform app for easily organizing and managing "table soccer tournaments" / classic Spanish "Futbolín"
 
-- TODO : Translation to English and Cleaning the Text to be more easily readable
+- This app is designed to help the tournament organizers save time while managing all the teams and games. 
+- The app is not expected to have internet connection or cloud functionalities at first. Maybe in a future we can develop an upgrade if the local version fit the market.
+## Features to add:
+- The start screen would be a display with a selection of classic tournaments preset. (TODO)
+- The start screen would have a button to create new customizable tournaments. (TODO)
+- The customized tournaments would be saveable. (TODO)
+- Presets and saved tournaments could be chosen, modified and deleted by the user. (TODO)
 
-La app en un principio no tendra conexion a servidor para poder compartir torneos y sera una app local para el organizador del torneo
+- When creating a new tournament the following features may be modifiable:
+    - Number of categories: (Pro, Pro + Master, Pro + Master + Advanced).
+    - Create Teams and select their respective category (if more than 1 category selected).
+    - Choose if you want only to randomize and play a group phase prior to the brackets
+        or the brackets will be directly randomized.
+    - Choose the number of groups, the games played in each group and the goals needed to win a game.
+    - Choose if the groups are played 1 by 1 or all groups together.
+    - Choose how many teams will get classified from each group.
+    - Choose how many loses each team can have in each category (single KO or double KO) and the goals needed to win per game in each category.
+    - Choose if the matches are played to best of 1 or best of 3. (maybe not needed)
 
-La pantalla de inicio seria una pantalla con los torneos ya creados y un boton para crear un nuevo torneo. Si hay torneos creados estos tendran un boton para modificarlos o borrarlos
+- Once the tournament is configured the app should randomize the groups trying to put the same amount of teams from each category in each group to keep them evenly matched.
+- The app should ordered the games to be played while trying to make the teams wait the same amount of time between matches whenever possible.
+- Results from the games should be introduced and saved in the app.
+- Group rankings will be shown when needed with the Wins, Losses and Goal Difference of each team.
+- TBC
 
-Al crear un nuevo torneo se debe dejar, primero seleccionar cuantas categorias hay, luego se añaden las parejas en las cuales se pondra un solo nombre, ya sea de equipo o
- nombre-nombre. A cada pareja le habra que poner en la categoria que participa. En caso de haber solo una categoria esto no seria necesario. Una vez que sabemos las categorias
- y las parejas se nos pedira seleccionar como sera el torneo. Por ejemplo si se sorteara y se hara la tabla directamente o si se hara una fase de grupo previa. La fase de
- grupos dejara seleccionar cuantos grupos se haran, dependiendo de cuantos grupos se hagan pondra cuantas partidas se juegan y dejara seleccionar a cuantos goles van las
- partidas de grupos. Una vez configurada la fase de grupos preguntara cuanta gente se clasificara y como se quiere configurar cada categoria, preguntando si sera ko directo
- o doble ko y a cuantos goles seran las partidas.
+[ESP]:
+En este proyecto desarrollaremos una app multiplataforma para organizar y gestionar fácilmente "torneos de futbolín"
 
-Se deberia poder selecionar si se van a jugar todos los grupos a la vez o si jugara un grupo detras de otro
+- Esta aplicación está diseñada para ayudar a los organizadores de torneos a ahorrar tiempo en la gestión de todos los equipos y partidos. 
+- Al principio no se espera que la aplicación tenga conexión a Internet o funcionalidades en la nube. Tal vez en un futuro podamos desarrollar una actualización si la versión local encaja en el mercado.
+## Características a añadir:
+- La pantalla de inicio sería una pantalla con una selección de torneos clásicos preestablecidos. (TODO)
+- La pantalla de inicio tendría un botón para crear nuevos torneos personalizables. (TODO)
+- Los torneos personalizados se podrían guardar. (TODO)
+- Los torneos preestablecidos y guardados podrían ser elegidos, modificados y eliminados por el usuario. (TODO)
 
-Una vez el torneo este configurado la app debera generar los grupos de forma aleatoria pero haciendo que en todos los grupos haya las mismas personas de cada categoria o sean
- lo mas nivelados posible. Una vez esto este listo se empezara a jugar la fase de grupos, para esto la app debera buscar la forma optima de ordenar los partidos para que las
- parejas dejen mas o menos la misma distancia entre partido y partido y asi una no juegue varios partidos seguidos. Una segun se vayan jugando partidos se debera introducir
- en la app los resuldados de los mismos. Se podria poner alguna forma de mostrar los resultados temporales mientras no se acabe la fase de grupos, pero lo principal seria
-que al acabar la fase de grupos los ordene por puestos.
+- Al crear un nuevo torneo las siguientes características estarían disponibles:
+    - Número de categorías: (Pro, Pro + Master, Pro + Master + Avanzado).
+    - Crear equipos y seleccionar su respectiva categoría (si se selecciona más de 1 categoría).
+    - Elegir si se quiere sólo aleatorizar y jugar una fase de grupos previa a los brackets
+        o los brackets serán directamente aleatorios.
+    - Elegir el número de grupos, los partidos que se juegan en cada grupo y los goles necesarios para ganar un partido.
+    - Elegir si los grupos se juegan 1 a 1 o todos los grupos juntos.
+    - Elegir cuántos equipos se clasificarán de cada grupo.
+    - Elegir cuántas derrotas puede tener cada equipo en cada categoría (KO simple o KO doble) y los goles necesarios para ganar por partido en cada categoría.
+    - Elegir si los partidos se juegan al mejor de 1 o al mejor de 3. (quizás no sea necesario)
 
+- Una vez configurado el torneo la app debería aleatorizar los grupos intentando poner la misma cantidad de equipos de cada categoría en cada grupo para mantenerlos igualados.
+- La aplicación debería ordenar los partidos a jugar intentando que los equipos esperen el mismo tiempo entre partidos siempre que sea posible.
+- Los resultados de los partidos deben introducirse y guardarse en la app.
+- La clasificación de los grupos se mostrará cuando sea necesario con las victorias, derrotas y diferencia de goles de cada equipo.
+- TBC
+
+
+
+## TODO: Finish with this translation and cleaning:
 Y una vez esto este listo en caso de que se clasifiquen todos, generara el cuadro de categoria mas alta con todas las parejas y en caso de haber huecos vacios se asignaran
  de mejor a peor clasificado. Una vez esto este listo se jugara de arriba a abajo el cuadro y se iran introducion resultados o ganadores directamente y la app ira colocando y
  formando los emparejamientos de las siguientes fases del cuadro
