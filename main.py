@@ -37,22 +37,47 @@ class TournamentSettings(Screen):
     def on_slider_mode(self, value):
         if value == 0:
             self.ids.slider_label_mode.text = "Mode: Pro"
+            self.ids.switch_ko_pro.disabled = False
+            self.ids.switch_ko_master.disabled = True
+            self.ids.switch_label_ko_master.text = "Master/KO"
+            self.ids.switch_ko_advanced.disabled = True
+            self.ids.switch_label_ko_advanced.text = "Advanced/KO"
         elif value == 1:
             self.ids.slider_label_mode.text = "Mode: Pro + Master"
+            self.ids.switch_ko_pro.disabled = False
+            self.ids.switch_ko_master.disabled = False
+            self.ids.switch_ko_advanced.disabled = True
+            self.ids.switch_label_ko_advanced.text = "Advanced/KO"
         elif value == 2:
             self.ids.slider_label_mode.text = "Mode: Pro + Master + Advanced"
-
-    def on_slider_ko(self, value):
-        if value == 0:
-            self.ids.slider_label_ko.text = "Direct Knockout"
-        elif value == 1:
-            self.ids.slider_label_ko.text = "Double Knockout"
-
-    def on_toggle_classification(self):
-        self.ids.toggle_button_classification.text = ("Classification with Groups+Brackets" if self.ids.toggle_button_classification.state == "down" else "Only with Brackets")
-    
-    def on_toggle_groups(self):
-        self.ids.toggle_button_groups.text = ("Groups play 1 by 1" if self.ids.toggle_button_groups.state == "down" else "All Groups play at once")
+            self.ids.switch_ko_pro.disabled = False
+            self.ids.switch_ko_master.disabled = False
+            self.ids.switch_ko_advanced.disabled = False
+    def on_switch_ko_pro(self, value):
+        if value == True:
+            self.ids.switch_label_ko_pro.text = "Pro Single KO"
+        else:
+            self.ids.switch_label_ko_pro.text = "Pro Double KO"
+    def on_switch_ko_master(self, value):
+        if value == True:
+            self.ids.switch_label_ko_master.text = "Master Single KO"
+        else:
+            self.ids.switch_label_ko_master.text = "Master Double KO"
+    def on_switch_ko_advanced(self, value):
+        if value == True:
+            self.ids.switch_label_ko_advanced.text = "Advanced Single KO"
+        else:
+            self.ids.switch_label_ko_advanced.text = "Advanced Double KO"
+    def on_switch_classification(self, value):
+        if value == True:
+            self.ids.switch_label_classification.text = "Groups+Brackets"
+        else:
+            self.ids.switch_label_classification.text = "Only Brackets"
+    def on_switch_groups(self, value):
+        if value == True:
+            self.ids.switch_label_groups.text = "Groups play 1 by 1"
+        else:
+            self.ids.switch_label_groups.text = "All Groups play at once"
     pass
 
 class MainScreen(Screen):
