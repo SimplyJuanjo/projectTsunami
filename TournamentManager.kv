@@ -1,4 +1,4 @@
-MainScreen:
+StartScreen:
 
 <StartScreen>:
     Button:
@@ -55,28 +55,54 @@ MainScreen:
             step: 1
             size_hint_y: 0.2
             on_value: root.on_slider_mode(slider_mode.value)
-        Label:
-            id: slider_label_ko
-            text: 'Choose Elimination Mode:'
+        BoxLayout:
+            orientation: 'horizontal'
             size_hint_y: 0.2
-        Slider:
-            id: slider_ko
-            min: 0
-            max: 1
-            step: 1
+            Switch:
+                id: switch_ko_pro
+                disabled: False
+                on_active: root.on_switch_ko_pro(switch_ko_pro.active)
+            Label:
+                id: switch_label_ko_pro
+                text: 'Pro/KO'
+        BoxLayout:
+            orientation: 'horizontal'
             size_hint_y: 0.2
-            on_value: root.on_slider_ko(slider_ko.value)
-        ToggleButton:
-            id: toggle_button_classification
-            text: 'Choose Clasification Mode:'
-            on_press: root.on_toggle_classification()
+            Switch:
+                id: switch_ko_master
+                disabled: False
+                on_active: root.on_switch_ko_master(switch_ko_master.active)
+            Label:
+                id: switch_label_ko_master
+                text: 'Master/KO'
+        BoxLayout:
+            orientation: 'horizontal'
             size_hint_y: 0.2
-        
-        ToggleButton:
-            id: toggle_button_groups
-            text: 'Choose Group Simultaneity of Groups Mode:'
-            on_press: root.on_toggle_groups()
+            Switch:
+                id: switch_ko_advanced
+                disabled: False
+                on_active: root.on_switch_ko_advanced(switch_ko_advanced.active)
+            Label:
+                id: switch_label_ko_advanced
+                text: 'Advanced/KO'
+        BoxLayout:
+            orientation: 'horizontal'
             size_hint_y: 0.2
+            Switch:
+                id: switch_button_classification
+                on_active: root.on_switch_classification(switch_button_classification.active)       
+            Label:
+                id: switch_label_classification
+                text: 'Classification'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.2
+            Switch:
+                id: switch_button_groups
+                on_active: root.on_switch_groups(switch_button_groups.active)
+            Label:
+                id: switch_label_groups
+                text: 'Order of Groups'
         Button:
             text: 'Modify TEAMS'
             on_press: root.manager.current = 'tournament'
